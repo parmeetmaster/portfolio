@@ -877,9 +877,9 @@
                 <div class="contacts__list">
                     <dl class="contact-list">
                         <dt>Phone:</dt>
-                        <dd><a href="tel:82344563333">8 (234) 456-33-33</a></dd>
+                        <dd><a href="tel:+919871917515">+91 9871917515</a></dd>
                         <dt>Skype:</dt>
-                        <dd><a href="skype:iamivanovivan">iamivanovivan</a></dd>
+                        <dd><a href="skype:parmeets834">parmeets834</a></dd>
                         <dt>Email:</dt>
                         <dd><a href="mailto:parmeetmaster@gmail.com">parmeetmaster@gmail.com</a></dd>
                     </dl>
@@ -898,22 +898,22 @@
                     <p class="contacts__form-title">Or just write me a letter here_</p>
                     <form class="js-form">
                         <div class="form-group">
-                            <input class="form-field js-field-name" type="text" placeholder="Your name" required>
+                            <input id="name" class="form-field js-field-name" type="text" placeholder="Your name"
+                                   required>
                             <span class="form-validation"></span>
                             <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
                         </div>
                         <div class="form-group">
-                            <input class="form-field js-field-email" type="email" placeholder="Your e-mail" required>
-                            <span class="form-validation"></span>
-                            <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
+                            <input id="subject" class="form-field js-field-email" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-field js-field-message" placeholder="Type the message here"
+                            <textarea id="message" class="form-field js-field-message"
+                                      placeholder="Type the message here"
                                       required></textarea>
                             <span class="form-validation"></span>
                             <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
                         </div>
-                        <button class="site-btn site-btn--form" type="submit" value="Send">Send</button>
+                        <button id="submit-btn" class="site-btn site-btn--form" type="submit" value="Send">Send</button>
                     </form>
                 </div>
                 <div class="footer">
@@ -994,7 +994,7 @@
     window.dataLayer = window.dataLayer || [];
     document.addEventListener("DOMContentLoaded", function () {
         var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-        ;
+
 
         if ("IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in window.IntersectionObserverEntry.prototype) {
             let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
@@ -1015,6 +1015,27 @@
         }
     });
 
+    /* contact form implementation */
+    document.getElementById("submit-btn").addEventListener("click", onsubmission);
+
+
+    function onsubmission() {
+        var name = document.getElementById("name").value;
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+
+        message = message + "Regards " + name;
+
+        if(name == "" || subject == ""){
+            window.alert("Please add name and subject to proceed");
+            return;
+
+        }
+
+        window.location = "https://mail.google.com/mail/?view=cm&fs=1&to=parmeets834@gmail.com&su=" + subject + "&body=" + message ;
+
+
+    }
 
 </script>
 
