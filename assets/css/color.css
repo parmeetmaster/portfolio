@@ -12193,6 +12193,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     float: right
 }
 
+@media only screen and (max-width: 800px) {
+.project-card .project-card__link {
+    margin-top: 20px;
+    font-family: Roboto Mono, monospace;
+    font-size: 12px;
+    line-height: 20px;
+    float: right
+}
+}
+
+
 .project-card:hover {
     box-shadow: 0 1px 31px rgba(0, 0, 0, .09);
     cursor: pointer
